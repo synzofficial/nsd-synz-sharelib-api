@@ -4,7 +4,7 @@ import (
 	"bytes"
 
 	"github.com/gin-gonic/gin"
-	"github.com/synzofficial/nsd-synz-sharelib-api/pkg/util/errorutil"
+	errorutil "github.com/synzofficial/nsd-synz-sharelib-api/pkg/util/error-util"
 )
 
 type bodyLogWriter struct {

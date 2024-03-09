@@ -11,8 +11,16 @@ const (
 	BadRequestCode   = "0002"
 )
 
+/*
+	{
+  		"status": 400,
+  		"code": "1001",
+  		"message": "health check test error"
+	}
+*/
+
 type CustomError struct {
-	Status  int    `json:"-"`
+	Status  int    `json:"status"`
 	Code    string `json:"code"`
 	Message string `json:"message"`
 }

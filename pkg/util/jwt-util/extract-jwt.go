@@ -8,10 +8,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/synzofficial/nsd-synz-sharelib-api/pkg/model/errormodel"
+	errormodel "github.com/synzofficial/nsd-synz-sharelib-api/pkg/model/error-model"
 	jwtmodel "github.com/synzofficial/nsd-synz-sharelib-api/pkg/model/jwtmodel"
 	"github.com/synzofficial/nsd-synz-sharelib-api/pkg/util/jws"
-	"github.com/synzofficial/nsd-synz-sharelib-api/pkg/util/typeconvertutil"
+	typeconvertutil "github.com/synzofficial/nsd-synz-sharelib-api/pkg/util/type-convert-util"
 )
 
 var (
