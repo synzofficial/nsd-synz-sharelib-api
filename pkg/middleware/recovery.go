@@ -4,8 +4,8 @@ import (
 	"bytes"
 
 	"github.com/gin-gonic/gin"
-	"github.com/synzofficial/nsd-synz-sharelib-api/pkg/model/errormodel"
-	"github.com/synzofficial/nsd-synz-sharelib-api/pkg/util/errorutil"
+	errormodel "github.com/synzofficial/nsd-synz-sharelib-api/pkg/model/error-model"
+	errorutil "github.com/synzofficial/nsd-synz-sharelib-api/pkg/util/error-util"
 )
 
 func Recovery() gin.HandlerFunc {
