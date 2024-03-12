@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	defaultmodel "github.com/synzofficial/nsd-synz-sharelib-api/pkg/model/default-model"
+	basemodel "github.com/synzofficial/nsd-synz-sharelib-api/pkg/model/base-model"
 	errormodel "github.com/synzofficial/nsd-synz-sharelib-api/pkg/model/error-model"
 )
 
@@ -26,8 +26,8 @@ func BindReqJson200Resp[Request any, Response any](c *gin.Context, f func(ctx co
 		CastErrorJsonWithLogging(c, err)
 		return
 	}
-
-	c.JSON(http.StatusOK, defaultmodel.RaiseSuccessResponse(http.StatusOK, resp))
+	c.JSON(http.StatusOK, resp)
+	// c.JSON(http.StatusOK, defaultmodel.RaiseSuccessResponse(http.StatusOK, resp))
 }
 
 // 201 Created:
@@ -48,7 +48,8 @@ func BindReqJson201Resp[Request any, Response any](c *gin.Context, f func(ctx co
 		return
 	}
 
-	c.JSON(http.StatusCreated, defaultmodel.RaiseSuccessResponse(http.StatusCreated, resp))
+	c.JSON(http.StatusCreated, resp)
+	//c.JSON(http.StatusCreated, defaultmodel.RaiseSuccessResponse(http.StatusCreated, resp))
 }
 
 // 204 No Content:
@@ -87,5 +88,5 @@ func BindReqJson200RespNoContent[Request any](c *gin.Context, f func(ctx context
 		return
 	}
 
-	c.JSON(http.StatusOK, defaultmodel.RaiseSuccessResponse(http.StatusOK, nil))
+	c.JSON(http.StatusOK, basemodel.RaiseSuccessResponse(nil))
 }
