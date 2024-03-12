@@ -1,3 +1,3 @@
-package defaultmodel
+package basemodel
 
 type EmptyStruct struct{}

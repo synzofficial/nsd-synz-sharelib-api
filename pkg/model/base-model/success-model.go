@@ -1,4 +1,4 @@
-package defaultmodel
+package basemodel
 
 import (
 	"github.com/synzofficial/nsd-synz-sharelib-api/pkg/enum"
@@ -10,13 +10,12 @@ const (
 )
 
 type SuccessResponse struct {
-	Status  int    `json:"status"`
 	Code    string `json:"code"`
 	Message string `json:"message"`
 	Data    any    `json:"data,omitempty"`
 }
 
-func RaiseSuccessResponse(status int, data any) SuccessResponse {
+func RaiseSuccessResponse(data any) SuccessResponse {
 
 	if d, ok := (data).(SuccessResponse); ok {
 		return d
@@ -27,34 +26,30 @@ func RaiseSuccessResponse(status int, data any) SuccessResponse {
 	}
 
 	return SuccessResponse{
-		Status:  status,
 		Code:    code,
 		Message: message,
 		Data:    data,
 	}
 }
 
-func RaiseSuccessCreateResponse(status int) *SuccessResponse {
+func RaiseSuccessCreateResponse() *SuccessResponse {
 	return &SuccessResponse{
-		Status:  status,
 		Code:    code,
 		Message: message,
 		Data:    enum.SuccessType_CREATED,
 	}
 }
 
-func RaiseSuccessUpdateResponse(status int) *SuccessResponse {
+func RaiseSuccessUpdateResponse() *SuccessResponse {
 	return &SuccessResponse{
-		Status:  status,
 		Code:    code,
 		Message: message,
 		Data:    enum.SuccessType_UPDATED,
 	}
 }
 
-func RaiseSuccessDeleteResponse(status int) *SuccessResponse {
+func RaiseSuccessDeleteResponse() *SuccessResponse {
 	return &SuccessResponse{
-		Status:  status,
 		Code:    code,
 		Message: message,
 		Data:    enum.SuccessType_DELETED,
