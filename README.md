@@ -1,5 +1,13 @@
 # nsd-synz-sharelib-api
 
+## API ID LIST
+- BFF and ShareLib -> 00
+- AUTH -> 01
+- MASTER_DATA -> 02
+- User -> 03
+- Account -> 04
+- Media -> 05
+
 ## How to install? (go get this private repo)
 1. Set go env GOPRIVATE
 ```
