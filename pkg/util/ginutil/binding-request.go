@@ -26,6 +26,10 @@ func BindingRequestLogging[Request any](c *gin.Context, request Request) (contex
 		return nil, request, err
 	}
 
+	if err := c.ShouldBindHeader(&request); err != nil {
+		return nil, request, err
+	}
+
 	// set request logging {log_message, log_masking etc..}
 
 	// extract request header, method, uri to context
