@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -65,6 +66,7 @@ func MiddlewareVerifySuperToken() gin.HandlerFunc {
 
 		type payload struct {
 			Message string `json:"message"`
+			UserId  string `json:"userId"` // sub userid (now this is super token userId)
 		}
 		var p payload
 		if err := json.Unmarshal(body, &p); err != nil {
@@ -80,6 +82,10 @@ func MiddlewareVerifySuperToken() gin.HandlerFunc {
 			})
 			return
 		}
+
+		// set sub userId to context
+		co := context.WithValue(c.Request.Context(), ctxKeySub, p.UserId)
+		c.Request = c.Request.WithContext(co)
 
 		c.Next()
 	}
