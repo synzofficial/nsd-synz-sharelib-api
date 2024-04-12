@@ -24,6 +24,7 @@ func GetSuperTokenUserID(ctx context.Context) string {
 	return sub
 }
 
+// SuperTokenMiddleware: middleware for inject authorization token to context
 func SuperTokenMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 
