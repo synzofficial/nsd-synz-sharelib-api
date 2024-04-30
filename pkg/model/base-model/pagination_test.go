@@ -1,6 +1,7 @@
 package basemodel_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -38,6 +39,19 @@ func TestSetLastPage(t *testing.T) {
 			TotalElements: 0,
 		}
 		p.SetLastPage()
+		fmt.Printf("\n\n%+v\n\n", p)
+
+		assert.Equal(t, 0, p.LastPage)
+	})
+
+	t.Run("4", func(t *testing.T) {
+		p := basemodel.PaginationWithLastPageResponse{
+			PageId:        1,
+			PageSize:      0,
+			TotalElements: 0,
+		}
+		p.SetLastPage()
+		fmt.Printf("\n\n%+v\n\n", p)
 
 		assert.Equal(t, 0, p.LastPage)
 	})
