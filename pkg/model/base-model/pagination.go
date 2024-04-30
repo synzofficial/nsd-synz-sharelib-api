@@ -23,5 +23,9 @@ type PaginationWithLastPageResponse struct {
 }
 
 func (p *PaginationWithLastPageResponse) SetLastPage() {
-	p.LastPage = int(math.Ceil(float64(p.TotalElements) / float64(p.PageSize)))
+	if p.PageSize == 0 {
+		p.LastPage = 0
+	} else {
+		p.LastPage = int(math.Ceil(float64(p.TotalElements) / float64(p.PageSize)))
+	}
 }
