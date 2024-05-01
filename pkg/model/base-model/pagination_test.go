@@ -52,7 +52,6 @@ func TestSetLastPage(t *testing.T) {
 		}
 		p.SetLastPage()
 		fmt.Printf("\n\n%+v\n\n", p)
-
 		assert.Equal(t, 0, p.LastPage)
 	})
 }
