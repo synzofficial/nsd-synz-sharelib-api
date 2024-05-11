@@ -65,7 +65,7 @@ func validateAuthorizationHeader(c *gin.Context) (int, error) {
 
 	res, err := ht.Do(req)
 	if err != nil {
-		fmt.Printf("unalbe to validate token with auth-api: %+v", err)
+		fmt.Printf("sharelib: unalbe to validate token with auth-api: %+v", err)
 		return http.StatusInternalServerError, errors.New("unable to set validate token payload")
 	}
 	defer res.Body.Close()
